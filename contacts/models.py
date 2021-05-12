@@ -13,7 +13,7 @@ class Contact(models.Model):
         return self.phone
 
 class Social(models.Model):
-    contact_id = models.ForeignKey(Contact, related_name='links', verbose_name='Контакт', on_delete=models.CASCADE)
+    contact = models.ForeignKey(Contact, related_name='links', verbose_name='Контакт', on_delete=models.CASCADE)
     name = models.CharField(choices=SOCIAL_MEDIA_CHOICES,max_length=9,verbose_name='Соц сеть')
     link = models.URLField(verbose_name='Ссылка')
 
